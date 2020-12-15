@@ -11,3 +11,5 @@ class Car():
 
 bmw = Car("bmw",2000)
 bmw.printModel()
+hhr = Car("hhr",2009)
+hhr.printModel()
