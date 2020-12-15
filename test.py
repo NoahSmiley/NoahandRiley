@@ -1,10 +1,3 @@
-# Functions
-#def riley():
-#     print("gay")
-#
-# def noah():
-#     print("no u")
-
 class Car():
 
     def __init__(self,type,year):
