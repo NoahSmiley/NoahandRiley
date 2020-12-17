@@ -8,8 +8,7 @@ Developed by Noah Smiley and Riley Edmunds.
 class Deck():
 
     def __init__(self):
-
-        self.deck=[]
+        self.deck = []
         self.suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
         self.faces = [['Ace',1],['Two',2],['Three',3],['Four',4],
                      ['Five',5],['Six',6],['Seven',7],['Eight',8],
@@ -26,6 +25,9 @@ class Deck():
     def shuffle(self):
         random.shuffle(self.deck)
 
+    def select_card(self):
+        return self.deck.pop()
+
     #Dunder str method to print the Deck out.
     def __str__(self):
         strings=[]
@@ -33,11 +35,19 @@ class Deck():
             strings.append(f" The {self.deck[i][1][0]} of {self.deck[i][0]}")
         return '\n'.join(strings)
 
+class GameLogic(Deck):
+
+    def __init__(self):
+        deck = Deck()
+        deck.shuffle()
+
+        selectedCard = deck.select_card()
+
+        print(selectedCard)
+
 
 def main():
 
-    newCardDeck = Deck()
-    newCardDeck.shuffle()
-    print(newCardDeck)
+    newGame = GameLogic()
 
 main()
