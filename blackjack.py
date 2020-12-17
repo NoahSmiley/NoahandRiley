@@ -15,7 +15,7 @@ class Deck():
                      ['Nine',9],['Ten',10],['Jack',11],['Queen',12],
                      ['King',13]]
 
-        #On instantiaion of the class, a deck of 64 cards is created.
+        #On instantiaion of the class, a deck of 52 cards is created.
         for suit in self.suits:
             for face in self.faces:
                 x = (suit,face)
@@ -38,16 +38,18 @@ class Deck():
 class GameLogic(Deck):
 
     def __init__(self):
-        self.deck = Deck()
-        self.deck.shuffle()
+        self.newDeck = Deck()
+        self.newDeck.shuffle()
+        self.deck= self.newDeck.deck
+
         self.userTotal = 0
         self.dealerTotal = 0
 
     def new_round(self):
         #Card hands for the dealer and user
-        userCard = [self.deck.select_card(), self.deck.select_card()]
-        dealerCard = [self.deck.select_card(), self.deck.select_card()]
-        #Riley does this equal 60?
+        userCard = [self.newDeck.select_card(), self.newDeck.select_card()]
+        dealerCard = [self.newDeck.select_card(), self.newDeck.select_card()]
+
         print(len(self.deck))
         #Asking the user if they want to hit
         # hit = input("Would you like to hit(y/n): ")
