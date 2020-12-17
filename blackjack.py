@@ -1,5 +1,5 @@
 import random
-class Cards():
+class Deck():
 
     def __init__(self):
         self.deck=[]
@@ -24,7 +24,10 @@ class Cards():
         return '\n'.join(strings)
 
 def main():
-    newCardDeck = Cards()
+
+    newCardDeck = Deck()
+
     newCardDeck.shuffle()
     print(newCardDeck)
+
 main()
