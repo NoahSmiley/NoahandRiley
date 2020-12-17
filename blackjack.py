@@ -38,16 +38,29 @@ class Deck():
 class GameLogic(Deck):
 
     def __init__(self):
-        deck = Deck()
-        deck.shuffle()
+        self.deck = Deck()
+        self.deck.shuffle()
+        self.userTotal = 0
+        self.dealerTotal = 0
 
-        selectedCard = deck.select_card()
+    def new_round(self):
+        #Card hands for the dealer and user
+        userCard = [self.deck.select_card(), self.deck.select_card()]
+        dealerCard = [self.deck.select_card(), self.deck.select_card()]
+        #Riley does this equal 60?
+        print(len(self.deck))
+        #Asking the user if they want to hit
+        # hit = input("Would you like to hit(y/n): ")
+        # if hit == 'y'
+        #     userCard.append(self.deck.select_card())
 
-        print(selectedCard)
+        #print(userCard)
+        #rint(dealerCard)
 
 
 def main():
 
     newGame = GameLogic()
+    newGame.new_round()
 
 main()
