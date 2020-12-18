@@ -44,14 +44,13 @@ class GameLogic(Deck):
         self.deck= self.newDeck.deck
         self.userTotal = 0
         self.dealerTotal = 0
-        print("Welcome to Noah and Riley's Blackjack game!\n")
 
     def new_round(self):
         #Card hands for the dealer and user
         userCard = [self.newDeck.select_card(), self.newDeck.select_card()]
         dealerCard = [self.newDeck.select_card(), self.newDeck.select_card()]
         self.userTotal = userCard[0][1][1]+userCard[1][1][1]
-
+        print("Welcome to Noah and Riley's Blackjack game!\n")
         print((f"You were dealt:\nThe {userCard[0][1][0]} of {userCard[0][0]}"))
         print((f"And The {userCard[1][1][0]} of {userCard[1][0]}"))
         print((f"Your current total is: {self.userTotal}"))
