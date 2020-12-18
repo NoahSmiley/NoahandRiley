@@ -1,4 +1,5 @@
 import random
+import time
 
 '''
 A text based game of the Blackjack card game (21).
@@ -12,8 +13,8 @@ class Deck():
         self.suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
         self.faces = [['Ace',1],['Two',2],['Three',3],['Four',4],
                      ['Five',5],['Six',6],['Seven',7],['Eight',8],
-                     ['Nine',9],['Ten',10],['Jack',11],['Queen',12],
-                     ['King',13]]
+                     ['Nine',9],['Ten',10],['Jack',10],['Queen',10],
+                     ['King',10]]
 
         #On instantiaion of the class, a deck of 52 cards is created.
         for suit in self.suits:
@@ -41,28 +42,26 @@ class GameLogic(Deck):
         self.newDeck = Deck()
         self.newDeck.shuffle()
         self.deck= self.newDeck.deck
-
         self.userTotal = 0
         self.dealerTotal = 0
 
+    def printSystem(Cards,total):
+        print("Welcome to Noah and Riley's Blackjack game!\n")
+        print((f"You were dealt:\nThe {Cards[0][1][0]} of {Cards[0][0]}"))
+        print((f"And The {Cards[1][1][0]} of {Cards[1][0]}"))
+        print((f"Your current total is: {total}"))
+
+    @printSystem
     def new_round(self):
         #Card hands for the dealer and user
         userCard = [self.newDeck.select_card(), self.newDeck.select_card()]
         dealerCard = [self.newDeck.select_card(), self.newDeck.select_card()]
+        self.userTotal = userCard[0][1][1]+userCard[1][1][1]
+        printSystem(userCard,self.userTotal)
 
-        print(len(self.deck))
-        #Asking the user if they want to hit
-        # hit = input("Would you like to hit(y/n): ")
-        # if hit == 'y'
-        #     userCard.append(self.deck.select_card())
-
-        #print(userCard)
-        #rint(dealerCard)
 
 
 def main():
-
     newGame = GameLogic()
     newGame.new_round()
-
 main()
