@@ -51,21 +51,25 @@ class GameLogic(Deck):
         dealerCard = [self.newDeck.select_card(), self.newDeck.select_card()]
         self.userTotal = userCard[0][1][1]+userCard[1][1][1]
         print("Welcome to Noah and Riley's Blackjack game!\n")
-        print((f"You were dealt:\nThe {userCard[0][1][0]} of {userCard[0][0]}"))
+        print("You were dealt: ", end ="            ")
+        print((f"The dealer was dealt:"))
+        print(f"The {userCard[0][1][0]} of {userCard[0][0]}", end ="           ")
+        print((f"The {dealerCard[0][1][0]} of {dealerCard[0][0]}"))
         print((f"And The {userCard[1][1][0]} of {userCard[1][0]}"))
         print((f"Your current total is: {self.userTotal}"))
 
-        self.hit(userCard)
 
-    def hit(self,userCard):
-        while self.userTotal<=20:
-            result = input("Would you like to hit? y/n")
-            if result == 'y' or result == 'Y':
-                userCard.append(self.newDeck.select_card())
-            else:
-                break
 
-        return userCard
+    #self.hit(userCard)
+    # def hit(self,userCard):
+    #     while self.userTotal<=20:
+    #         result = input("Would you like to hit? y/n")
+    #         if result == 'y' or result == 'Y':
+    #             userCard.append(self.newDeck.select_card())
+    #         else:
+    #             break
+    #
+    #     return userCard
 
 def main():
     newGame = GameLogic()
