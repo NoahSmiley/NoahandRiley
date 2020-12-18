@@ -52,10 +52,12 @@ class GameLogic(Deck):
         self.userTotal = userCard[0][1][1]+userCard[1][1][1]
 
         print("Welcome to Noah and Riley's Blackjack game!\n")
-        print((f"You were dealt:\nThe {userCard[0][1][0]} of {userCard[0][0]}"))
+        print("You were dealt: ", end ="            ")
+        print((f"The dealer was dealt:"))
+        print(f"The {userCard[0][1][0]} of {userCard[0][0]}", end ="           ")
+        print((f"The {dealerCard[0][1][0]} of {dealerCard[0][0]}"))
         print((f"And The {userCard[1][1][0]} of {userCard[1][0]}"))
         print((f"Your current total is: {self.userTotal}"))
-
 
 def main():
     newGame = GameLogic()
