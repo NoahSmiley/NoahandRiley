@@ -55,7 +55,7 @@ class GameLogic(Deck):
         print((f"You were dealt:\nThe {userCard[0][1][0]} of {userCard[0][0]}"))
         print((f"And The {userCard[1][1][0]} of {userCard[1][0]}"))
         print((f"Your current total is: {self.userTotal}"))
-        
+
         self.hit(userCard)
 
     def hit(self,userCard):
