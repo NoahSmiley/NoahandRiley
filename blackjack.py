@@ -11,10 +11,10 @@ class Deck():
     def __init__(self):
         self.deck = []
         self.suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
-        self.faces = [['Ace',1],['Two',2],['Three',3],['Four',4],
+        self.faces = [['Two',2],['Three',3],['Four',4],
                      ['Five',5],['Six',6],['Seven',7],['Eight',8],
                      ['Nine',9],['Ten',10],['Jack',10],['Queen',10],
-                     ['King',10]]
+                     ['King',10],['Ace',11]]
 
         #On instantiaion of the class, a deck of 52 cards is created.
         for suit in self.suits:
@@ -44,6 +44,7 @@ class GameLogic(Deck):
         self.deck= self.newDeck.deck
         self.userTotal = 0
         self.dealerTotal = 0
+        print("Welcome to Noah and Riley's Blackjack game!\n")
 
     def new_round(self):
         #Card hands for the dealer and user
@@ -51,11 +52,21 @@ class GameLogic(Deck):
         dealerCard = [self.newDeck.select_card(), self.newDeck.select_card()]
         self.userTotal = userCard[0][1][1]+userCard[1][1][1]
 
-        print("Welcome to Noah and Riley's Blackjack game!\n")
         print((f"You were dealt:\nThe {userCard[0][1][0]} of {userCard[0][0]}"))
         print((f"And The {userCard[1][1][0]} of {userCard[1][0]}"))
         print((f"Your current total is: {self.userTotal}"))
+        
+        self.hit(userCard)
 
+    def hit(self,userCard):
+        while self.userTotal<=20:
+            result = input("Would you like to hit? y/n")
+            if result == 'y' or result == 'Y':
+                userCard.append(self.newDeck.select_card())
+            else:
+                break
+
+        return userCard
 
 def main():
     newGame = GameLogic()
